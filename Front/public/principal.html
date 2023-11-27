@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>pagina/principal</title>
+	<link href="CSS\principal.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+</head>
+
+<body>
+	<div class="header">
+		<img src="https://www.cepal.org/sites/default/files/styles/1280x720/public/images/featured/19_1.jpg?itok=6eudKe6A"
+			width="100%" height="350px">
+	</div>
+
+	<div id="barra">
+		<ul>
+			<li class="dropdown">
+				<img src="https://i.pinimg.com/564x/e5/2a/b9/e52ab9ea3f5fb3d6cf460789fd3be954.jpg" alt="" height="45"
+					width="45">
+			</li>
+			<li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">NOMINA</a>
+				<div class="dropdown-content">
+					<input type="file" id="fileNomina" accept=".xlsx" style="display: none;" />
+					<a id="uploadNomina">Cargar archivo</a>
+					<a href="Nominatabla1.html">Ver tabla nomina</a>
+					<a id="form-modal">Reporte Nomina</a>
+					<a id="reporte_informacion_persona">Reporte informacion personal </a>
+					<a id="form-sp-modal">Reporte salud y pension</a>
+					<a id="form-nov-modal">Reporte de novedades</a>
+				</div>
+			</li>
+
+			<li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">LIBROS</a>
+				<div class="dropdown-content">
+					<input type="file" id="librosFile" accept=".json" style="display: none;" />
+					<a id="uploadLibros">Cargar archivo</a>
+					<a href="tablaLibros.html">Ver tabla libros</a>
+					<a href="#">Reporte base entretenimiento</a>
+				</div>
+			</li>
+
+			<li class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn">PELICULAS</a>
+				<div class="dropdown-content">
+					<input type="file" id="filePeliculas" accept=".dat" style="display: none;" />
+					<a id="uploadPeliculas">Cargar archivo</a>
+					<a href="tablaPeli.html">ver tabla peliculas</a>
+					<a href="#">Reporte base entretenimiento</a>
+				</div>
+			</li>
+			<li style="float:right" class="dropdown">
+				<a href="javascript:void(0)" class="dropbtn" style="border-radius: 50%;"><img
+						src="https://us.123rf.com/450wm/tifani1/tifani11801/tifani1180100032/93016694-usuario-icono-de-ilustraci%C3%B3n-vectorial-sobre-fondo-negro.jpg"
+						height="40" width="40" style="border-radius: 50%;" /></a>
+				<div class="dropdown-content">
+					<a href="http://localhost:8080/Front/index.html">Cerrar sesion</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="player" class="caja2"></div>
+
+
+	<!--Reporde correspondiente a "Nomina"-->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div id="modal" class="codigo">
+
+				<h3>INFORME NOMINA</h3>
+
+				<h5>LISTA EMPLEADOS DE LA EMPRESA. ORDENAR NOMBRES:</h5>
+				<input type="radio" id="ASCENDENTE1" name="odern1" value="as1" checked>
+				<label for="as1">ASCENDENTE</label><br>
+				<input type="radio" id="DESCENDENTE1" name="odern1" value="des1">
+				<label for="des1">DESCENDENTE</label><br>
+
+				<h5>LISTA EMPLEADOS POR DEPENDENCIA DE LA EMPRESA. ORDENAR NOMBRES:</h5>
+				<input type="radio" id="ASCENDENTE2" name="odern2" value="as2" checked>
+				<label for="as2">ASCENDENTE</label><br>
+				<input type="radio" id="DESCENDENTE2" name="odern2" value="des2">
+				<label for="des2">DESCENDENTE</label><br>
+
+				<h5>LISTA EMPLEADOS POR DEPENDENCIA Y POR CARGO. ORDENAR NOMBRES:</h5>
+				<input type="radio" id="ASCENDENTE3" name="odern3" value="as3" checked>
+				<label for="as3">ASCENDENTE</label><br>
+				<input type="radio" id="DESCENDENTE3" name="odern3" value="des3">
+				<label for="des3">DESCENDENTE</label><br>
+
+				<input type="submit" value="ENVIAR" id="enviar-datos1">
+
+			</div>
+		</div>
+	</div>
+
+
+	<!--Reporde correspondiente a "Salud y pension"-->
+	<div id="myModal-sp" class="modal">
+		<div class="modal-content">
+			<span class="close-sp">&times;</span>
+			<div id="modal-sp" class="codigo">
+
+				<h5>LISTA EMPLEADOS POR CARGO Y EPS. ORDENAR NOMBRES:</h5>
+				<input type="radio" id="ASCENDENTE-SP1" name="SP1" value="as-sp1" checked>
+				<label for="as-sp1">ASCENDENTE</label><br>
+				<input type="radio" id="DESCENDENTE-SP1" name="SP1" value="des-sp1">
+				<label for="des-sp1">DESCENDENTE</label><br>
+
+				<h5>LISTA EMPLEADOS POR CARGO Y PENSION. ORDENAR NOMBRES:</h5>
+				<input type="radio" id="ASCENDENTE-SP2" name="SP2" value="as-sp2" checked>
+				<label for="as-sp2">ASCENDENTE</label><br>
+				<input type="radio" id="DESCENDENTE-SP2" name="SP2" value="des-sp2">
+				<label for="des-sp2">DESCENDENTE</label><br>
+
+				<input type="submit" value="ENVIAR" id="enviar-sp">
+			</div>
+		</div>
+	</div>
+
+
+	<!--Reporde correspondiente a "Novedades"-->
+	<div id="myModal-nov" class="modal">
+		<div class="modal-content">
+			<span class="close-nov">&times;</span>
+			<div id="modal-nov" class="codigo">
+
+				<h5>LISTA EMPLEADOS QUE TUVIERON NOVEDADES EN UN RANGO DE FECHA</h5><br>
+				<label for="F1">FECHA INICIAL</label><br>
+				<input type="month" id="F1" name="FECHA-INICIAL" max="2023-12" min="1990-01">
+				<label for="F2">FECHA FINAL</label><br>
+				<input type="month" id="F2" name="FECHA-FINAL" max="2023-12" min="1990-01">
+
+				<input type="submit" value="ENVIAR" id="enviar-nov">
+			</div>
+		</div>
+	</div>
+
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="JS\principal.js"></script>
+
+</body>
+
+</html>

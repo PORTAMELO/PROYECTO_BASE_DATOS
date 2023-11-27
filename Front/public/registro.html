@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>registro</title>
+	<link href="CSS\registro.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+		integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+	<div class="sidenav">
+		<div id="carrusel-contenido">
+			<div id="carrusel-caja">
+				<div class="carrusel-elemento">
+					<img class="imagenes" src="https://i.pinimg.com/564x/77/39/21/77392136a4ac1e42e19bca305aba0168.jpg">
+				</div>
+				<div class="carrusel-elemento">
+					<img class="imagenes" src="https://i.pinimg.com/564x/9a/71/fe/9a71fef7f5c144fc646df27ab59c766b.jpg">
+				</div>
+				<div class="carrusel-elemento">
+					<img class="imagenes" src="https://i.pinimg.com/564x/9e/07/f9/9e07f933b6ebb6febc2a160ff2f60836.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="icono">
+			<img src="https://i.pinimg.com/564x/29/30/04/293004bcf665919cf1ea4b7fa2089a45.jpg" alt="" height="200px"
+				width="200px">
+		</div>
+		<div class="formulario">
+			<form action="">
+				<label for="fname">NOMBRE</label>
+				<input type="text" id="fname" name="firstname" placeholder="Nombre completo" required>
+
+				<label for="fname">E-MAIL</label>
+				<input type="text" id="email" name="mail" placeholder="EJ: jpk@gmail.com" required>
+
+				<label for="fname">CONTRASEÑA</label>
+				<input type="password" id="pass" name="password" required>
+
+				<input type="submit" value="CONFIRMAR" id="enviar">
+			</form>
+		</div>
+	</div>
+	
+	<script src="JS\registro.js"></script>
+	
+</body>
+
+</html>
